@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Login/Signup Form With Slider</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Indie Flower', sans-serif;
+}
+
+body{background: #fff  }
+
+.main-box{
+  position: relative;
+  display: block;
+  width: 90%;
+  height: 700px;
+  margin: 50px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background:linear-gradient(to right, #8FBC8F, #518351);
+}
+
+.lined-link{
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s linear
+}
+
+.lined-link:hover{
+  opacity: 0.5
+}
+
+.lined-link:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+  bottom: -2px;
+  border: none;
+  border-bottom: 1px solid #63d5c4;
+}
+
+.slider-cont,
+.form-cont{
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.slick-slide,
+.slick-slider{
+  width: 100%;
+  height: 100% 
+}
+
+.clear-fix{
+  clear: both;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 3px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button {
+  font-size: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background: #8dffea;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button{
+  background-color: #c6f1c6;
+  transform: scale(1.6);
+  box-shadow: 0 0 10px #000000
+}
+
+.img-txt{
+  position: relative;
+}
+
+.img-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(85, 85, 85, 0.53);
+}
+
+.img-txt h1{
+  position: absolute;
+  display: block;
+  top: 50%;
+  color: #fff;
+  width: 100%;
+  padding: 50px 0;
+  font-size: 45px;
+  font-weight: 100;
+  text-align: center;
+  transform: translateY(-50%);
+  background-color: transparent;
+}
+
+.top-buttons {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 15%;
+  padding: 25px;
+  text-align: right;
+}
+
+.top-buttons button {
+  color: #ffffff;
+  border: none;
+  width: 90px;
+  margin: -2px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  background: #83ad85;
+  cursor: pointer;
+}
+
+.top-buttons button:nth-child(1) {
+  border-radius: 50px 0 0 50px;
+}
+
+.top-buttons button:nth-child(2) {
+  border-radius: 0 50px 50px 0;
+}
+
+.top-active-button {
+  color: #fff !important;
+  box-shadow: 0 0 10px #2a2a2a;
+  background: linear-gradient(#7fda68,#b3d6aa) !important;
+  transition: all 0.3s ease;
+}
+
+.form{
+  width: 100%;
+  height: 85%;
+  padding: 10px 40px;
+}
+
+.form form {
+  width: 100%;
+  height: 100%;
+}
+
+.form form 
+label,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  display: block;
+}
+
+.form form lable {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 6px 0;
+}
+
+p.terms {
+  color: #5f5f5f;
+  margin-bottom: 60px;
+}
+
+.form form 
+input[type="text"],
+input[type="email"], 
+input[type="password"] {
+  color: #fff;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 45px;
+  padding: 5px 0 10px 0;
+  background: transparent;
+  border-bottom: 1px solid #193810;
+}
+
+.form form input::placeholder{
+  color: #cecece;
+}
+
+.form form a {
+  color: #fff;
+}
+
+.form-btn {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 300;
+  padding: 12px 55px;
+  margin-right: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 35px;
+  transition: all 0.3s linear;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+  background: linear-gradient(to right, #7fda68,#b3d6aa);
+}
+
+input.form-btn:hover{
+  box-shadow: none
+}
+
+.form-signin{
+  display: none;
+  padding-top: 120px;
+}
+  </style>
+
+</head>
+<body>
+<div class="main-box">
+  <div class="slider-cont">
+    <div class="signup-slider">
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Calculate your Carbon Footprint</h1>
+        <img src="https://images.unsplash.com/photo-1483825366482-1265f6ea9bc9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyYm9ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Learn from interesting Data Visualisations</h1>
+        <img src="https://images.unsplash.com/photo-1586448124798-bec4201c06db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGF0YSUyMHZpc3VhbGl6YXRpb258ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"/>
+      </div>
+      <div class="img-txt">
+        <div class="img-layer"></div>
+        <h1>Take action now!</h1>
+        <img src="https://images.unsplash.com/photo-1570095378004-ce65d6c2d5bb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xpbWF0ZSUyMHByb3Rlc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"/>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="form-cont">
+
+    <div class="top-buttons">
+      <button class="to-signup top-active-button">
+        Sign Up
+      </button>
+      <button class="to-signin">
+        Log In
+      </button>
+    </div>
+    
+    <div class="form form-signup">
+      <form action="#">
+        <lable>FULL NAME</lable>
+        <input type="text" 
+               placeholder="Your full name">
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password">
+        <p class="terms">
+          <input type="checkbox">
+          I agree to the
+          <a href="#" class="lined-link">terms of service</a>
+        </p>
+        <a href="account.html" class="form-btn">Sign Up</a>
+        <br><br>
+        <a href="#" class="lined-link to-signin-link">I'm already a member</a>
+      </form>
+    </div>
+
+    <div class="form form-signin">
+      <form action="#">
+        <lable>E-MAIL</lable>
+        <input type="email" 
+               placeholder="Your e-mail">
+        <lable>PASSWORD</lable>
+        <input type="password" 
+               placeholder="Your password">
+        <a href="account.html" class="form-btn">Log In</a>
+        <br><br>
+        <a href="#" class="lined-link to-signup-link">Create a new account</a>
+      </form>
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script><script>
+  $(document).ready(function(){
+  $('.signup-slider').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000
+  });
+
+  $("img").height($(".main-box").height());
+
+  $(".to-signin").on("click", function () {
+    $(this)
+      .addClass("top-active-button")
+      .siblings()
+      .removeClass("top-active-button");
+    $(".form-signup").slideUp(500);
+    $(".form-signin").slideDown(500);
+  });
+
+  $(".to-signup").on("click", function () {
+    $(this)
+      .addClass("top-active-button")
+      .siblings()
+      .removeClass("top-active-button");
+    $(".form-signin").slideUp(500);
+    $(".form-signup").slideDown(500);
+  });
+
+  $(".to-signin-link").on("click", function () {
+    $(".to-signin")
+      .addClass("top-active-button")
+      .siblings()
+      .removeClass("top-active-button");
+    $(".form-signup").slideUp(200);
+    $(".form-signin").slideDown(200);
+  });
+
+  $(".to-signup-link").on("click", function () {
+    $(".to-signup")
+      .addClass("top-active-button")
+      .siblings()
+      .removeClass("top-active-button");
+    $(".form-signin").slideUp(200);
+    $(".form-signup").slideDown(200);
+  });
+});
+</script>
+
+</body>
+</html>

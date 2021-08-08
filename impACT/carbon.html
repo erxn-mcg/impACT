@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+            body {
+                font-family: 'Indie Flower', sans-serif;
+                background-color: #f2fcf0;
+            }
+
+            .bx-left-arrow-circle {
+                font-size: 50px;
+                color: #215E21;
+            }
+
+            .bx-left-arrow-circle:hover {
+                color: #8FBC8F;
+            }
+
+            .flower {
+                margin-top:50px;
+                font-size: 30px;
+                text-align: center;
+                color: #2ba52b
+            }
+
+            .block {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #8FC363;
+                width: 60%;
+                color: white;
+                text-align: center;
+                border-radius: 100px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 30px;
+            }
+
+            .button {
+                height: 40px;
+                width: 100px;
+                background-color: #215E21;
+                color: white;
+                border-radius: 50px;
+                outline: none;
+                border: none;
+                font-size: 20px;
+                margin-top: 20px;
+                font-family: 'Indie Flower', sans-serif;
+            }
+
+            .button:hover {
+                opacity: 0.6;
+                font-size: 20px;
+            }
+
+            a {
+                text-decoration: none;
+                color:#b6e7b6;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="account.html">
+        <i class='bx bx-left-arrow-circle' ></i>
+        </a>
+        <br>
+        <div class="flower">
+            <i class='bx bxs-florist' ></i>Carbon Footprint Calculator<i class='bx bxs-florist' ></i>
+        </div>
+        <div class="block">
+			<form id="form1">
+
+				<h2>WHat is your diet like?</h2>
+				<label for="meatinevery"><input type="radio" name="food" value="200" id="meatinevery" /> I have meat in every meal</label> <br />
+				<label for="nobeef"><input type="radio" name="food" value="100" id="nobeef" /> I do not eat beef</label> <br />
+				<label for="notmeat"><input type="radio" name="food" value="50" id="notmeat" /> I rarely have meat</label> <br />
+				<label for="nomeat"><input type="radio" name="food" value="20" id="nomeat" /> I am Vegan or Vegetarian</label>
+
+				<h2>How much food do you waste a day?</h2>
+				<label for="none"><input type="radio" name="waste" value="0" id="none" /> None</label> <br />
+				<label for="1/4"><input type="radio" name="waste" value="20" id="1/4" /> 1/4 plate </label> <br />
+				<label for="1/2"><input type="radio" name="waste" value="40" id="1/2" /> 1/2 plate</label> <br />
+				<label for="more1"><input type="radio" name="waste" value="60" id="more1" />1+ plates</label>
+
+				<h2>What kind of food do you buy?</h2>
+				<label for="all"><input type="radio" name="local" value="20" id="all" /> All my food is locally sourced</label> <br />
+				<label for="some"><input type="radio" name="local" value="80" id="some" /> Some of my food is locally sourced</label> <br />
+				<label for="nonefood"><input type="radio" name="local" value="140" id="nonefood" /> None of my food is locally sourced</label> <br />
+				<label for="idk"><input type="radio" name="local" value="0" id="idk" /> I don't know where my food comes from</label>
+
+				<h2>What vehicle do you normally use for transportation? </h2>
+				<label for="car"><input type="radio" name="transport" value="200" id="car" /> Car</label> <br />
+				<label for="publict"><input type="radio" name="transport" value="100" id="publict" /> Public Transport</label> <br />
+				<label for="walkbike"><input type="radio" name="transport" value="0" id="walkbike" /> None, I walk or bike</label> <br />
+
+                <h2>How do you heat your home?</h2>
+				<label for="gas"><input type="radio" name="fuel" value="200" id="gas" /> Gas</label> <br />
+				<label for="oil"><input type="radio" name="fuel" value="150" id="oil" /> Oil</label> <br />
+				<label for="electricity"><input type="radio" name="local" value="100" id="electricity" /> Electricity</label> <br />
+				<label for="wood"><input type="radio" name="fuel" value="70" id="wood" /> Wood</label>
+
+                <h2>Do you remember to turn off your lights?</h2>
+				<label for="yess"><input type="radio" name="lights" value="0" id="yess" /> Yes</label> <br />
+				<label for="noo"><input type="radio" name="lights" value="100" id="noo" /> No</label> <br />
+
+                <h2>How much do you spend on clothes a month?</h2>
+				<label for="0"><input type="radio" name="clothes" value="0" id="0" /> $0</label> <br />
+				<label for="50"><input type="radio" name="clothes" value="30" id="50" /> $1 - $50</label> <br />
+                <label for="150"><input type="radio" name="clothes" value="80" id="150" /> $50 - $150</label> <br />
+				<label for="1500"><input type="radio" name="clothes" value="100" id="1500" /> $150+</label> 
+
+				<br />
+
+                <button type="submit" value="Submit" class="button">Submit</button>
+
+				<p style="margin-bottom: 0">You produce about <span id="grade">____</span>kg of carbon per month!</p>
+				<p id="grade2" style="margin-bottom: 0"></p>
+
+
+				
+
+				<p style="margin-top: 2%; color: #215E21; font-size: 20px; margin-bottom: 10">Explain my <a href="explain.html">score</a>!</p>
+			</form>
+
+
+		</div><br />
+
+
+		<script>
+			document.getElementById("form1")
+				.onsubmit = function () {
+					food = parseInt(document.querySelector('input[name = "food"]:checked')
+						.value);
+					waste = parseInt(document.querySelector('input[name = "waste"]:checked')
+						.value);
+					local = parseInt(document.querySelector('input[name = "local"]:checked')
+						.value);
+					transport = parseInt(document.querySelector('input[name = "transport"]:checked')
+						.value);
+                    fuel = parseInt(document.querySelector('input[name = "fuel"]:checked')
+						.value);
+                    lights = parseInt(document.querySelector('input[name = "lights"]:checked')
+						.value);
+                    clothes = parseInt(document.querySelector('input[name = "clothes"]:checked')
+						.value);
+
+					result = food + waste + local + transport + fuel + lights + clothes;
+
+					document.getElementById("grade")
+						.innerHTML = result;
+
+					return false;
+				}
+		</script>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+            body {
+                font-family: 'Indie Flower', sans-serif;
+                background-color: #f2fcf0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .bx-left-arrow-circle {
+                font-size: 50px;
+                color: #215E21;
+            }
+
+            .bx-left-arrow-circle:hover {
+                color: #8FBC8F;
+            }
+
+            .info {
+                text-align: center;
+                font-size: 30px;
+                color: #215E21;
+            }
+
+            iframe {
+                width: 50%;
+                height: 500px;
+            }
+
+            form {
+                text-align: center;
+                font-size: 20px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                background-color: #8FBC8F;
+                border-radius: 150px;
+                padding: 10px;
+            }
+
+            #distance {
+                height: 30px;
+                width: 150px;
+                border-radius: 10px;
+                border: none;
+            }
+
+            #fuel {
+                height: 30px;
+                width: 150px;
+                border-radius: 10px;
+                border: none;
+                text-decoration: none;
+            }
+
+            label {
+                padding-top: 5px;
+            }
+
+            .it {
+                text-align: center;
+                margin-top: 50px;
+                font-size: 25px;
+                color: #215E21;
+            }
+
+            span {
+                color: #8FBC8F;
+            }
+
+        </style>
+    </head>
+    <body>
+        <a href="account.html">
+        <i class='bx bx-left-arrow-circle' ></i>
+        </a>
+        <br>
+        <p class="info">29% of greenhouse gas emissions in the USA come from transport</p>
+        <p class="info">Use this tool to help minimise the environmental cost of getting from A to B!</p>
+        <form id="form">
+            <label for="distance"></label>Distance Travelled: </label>
+            <input type="number" placeholder="distance in miles..." name="distance" id="distance">
+            <br><br>
+            <p class="stuff">What fuel do you use?</p>
+            <label for="petrol"><input type="radio" name="fuel" value="150" id="petrol" /> Petrol</label> <br />
+			<label for="diesel"><input type="radio" name="fuel" value="130" id="diesel" /> Diesel</label> <br />
+			<label for="electric"><input type="radio" name="fuel" value="33" id="electric" /> Electric</label> <br />
+            <br>
+            <p class="stuff">What type of car do you have?</p>
+            <label for="compact"><input type="radio" name="car" value="1" id="compact" /> Compact/Small Car</label> <br />
+			<label for="midrange"><input type="radio" name="car" value="2" id="midrange" /> Mid-range Car</label> <br />
+			<label for="luxury"><input type="radio" name="car" value="3" id="luxury" /> Luxury / SUV</label> <br />
+            <button type="submit" value="Submit" class="button">Submit</button>
+        </form>
+        <p class="it">This journey produces <span id="grade">____</span> grams of carbon!</p></p>
+        <p class="it"><a href="offset.html">Offset</a> my journey!</p>
+    <script>
+        document.getElementById("form")
+				.onsubmit = function () {
+					car = parseInt(document.querySelector('input[name = "car"]:checked')
+						.value);
+                    fuel = parseInt(document.querySelector('input[name = "fuel"]:checked')
+						.value);
+                    dist = document.getElementById("distance").value;
+
+                    result = car * fuel * dist;
+
+                    document.getElementById("grade")
+                    .innerHTML = result;
+
+                    return false;
+                }
+    </script>
+    </body>
+</html>
